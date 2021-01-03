@@ -10,4 +10,6 @@
 
 using namespace std;
 
+int getRandNum(int min, int max);
+
 #endif // BULLCOW_NUMBER_H
