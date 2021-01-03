@@ -57,3 +57,41 @@ vector<int> getNumSymbols(int number)
 
     return symbols;
 }
+
+/**
+ * Сравнение загаданного числа с числом, которое предпологает пользователь
+ * @param hiddenNum Загаданнное число
+ * @param userNumInput Число, предпологаемое пользователем
+ * @return true, если числа идентичны, false, если нет
+ */
+bool compareNumbers(int hiddenNum, int userNumInput)
+{
+    if (hiddenNum == userNumInput) {
+        return true;
+    } else {
+        vector<int> hiddenNumSymbols = getNumSymbols(hiddenNum);
+        vector<int> usersNumSymbols = getNumSymbols(userNumInput);
+        vector<bool> checkedSymbols;
+
+        int cowCount = 0;
+        int bullCount = 0;
+        int length = hiddenNumSymbols.size();
+
+        checkedSymbols.resize(length);
+
+        for (int i = 0; i < length; ++i) {
+            for (int j = 0; j < length; ++j)
+                if (!checkedSymbols[j]
+                    && (hiddenNumSymbols[j] == usersNumSymbols[i])) {
+                    checkedSymbols[j] = true;
+                    if (hiddenNumSymbols[j] == usersNumSymbols[j]) {
+                        bullCount++;
+                    } else {
+                        cowCount++;
+                    }
+                }
+        }
+        resultAttempt(bullCount, cowCount);
+        return false;
+    }
+}
