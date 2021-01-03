@@ -18,4 +18,6 @@ void game()
     int minUserInputNum = pow(10, lengthNum - 1);
     int maxUserInputNum = pow(10, lengthNum) - 1;
     /***********************************/
+
+    gameHeader();
 }

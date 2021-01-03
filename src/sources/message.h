@@ -5,4 +5,6 @@
 
 using namespace std;
 
+void gameHeader();
+
 #endif // BULLCOW_PRINTMENU_H
