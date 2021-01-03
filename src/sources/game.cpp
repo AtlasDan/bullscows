@@ -53,6 +53,28 @@ void game()
                     break;
                 }
             } while (true);
+        } else if (userMenuInput == 2) {
+            gameRules();
+        } else if (userMenuInput == 3) {
+            gameCredits();
+        } else if (userMenuInput == 4) {
+            gameOptionsMenu(lengthNum, maxAttempt);
+            cin >> userMenuInput;
+
+            if (userMenuInput == 1) {
+                replaceLengthNum();
+                cin >> lengthNum;
+
+                minUserInputNum = pow(10, lengthNum - 1);
+                maxUserInputNum = pow(10, lengthNum) - 1;
+            } else if (userMenuInput == 2) {
+                replaceMaxAttempt();
+                cin >> maxAttempt;
+            } else if (userMenuInput == 3) {
+                continue;
+            } else {
+                invalidInput();
+            }
         } else if (userMenuInput == 0) {
             goodbye();
             break;
