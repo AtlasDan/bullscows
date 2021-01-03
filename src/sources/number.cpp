@@ -36,3 +36,24 @@ int getUserNum(int minUserInputNum, int maxUserInputNum)
 
     return userNumInput;
 }
+
+/**
+ * Генерация вектора символов (цифр числа)
+ * @param number Число
+ * @return Вектор символов (цифр числа)
+ */
+vector<int> getNumSymbols(int number)
+{
+    vector<int> symbols;
+    int numberLength = 0;
+
+    while (number >= pow(10, numberLength)) {
+        numberLength++;
+    }
+
+    for (int i = numberLength - 1; i >= 0; --i) {
+        symbols.push_back((number / static_cast<int>(pow(10, i))) % 10);
+    }
+
+    return symbols;
+}
