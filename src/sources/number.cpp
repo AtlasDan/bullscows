@@ -12,3 +12,27 @@ int getRandNum(int min, int max)
             * (max - min + 1)
             + min;
 }
+
+/**
+ * Пользовательский ввод предпологаемого числа
+ * @param minUserInputNum минимально возможное вводимое число
+ * @param maxUserInputNum максимально возможное вводимое число
+ * @return Число, предпологаемое пользователем
+ */
+int getUserNum(int minUserInputNum, int maxUserInputNum)
+{
+    int userNumInput;
+    cin >> userNumInput;
+
+    if (userNumInput == 0) {
+        return userNumInput;
+    }
+
+    while ((userNumInput < minUserInputNum)
+           || (userNumInput > maxUserInputNum)) {
+        invalidAnswerInput(minUserInputNum, maxUserInputNum);
+        cin >> userNumInput;
+    }
+
+    return userNumInput;
+}
